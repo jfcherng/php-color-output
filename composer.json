@@ -1,0 +1,38 @@
+{
+    "name": "jfcherng/php-color-output",
+    "description": "Make your PHP command-line application colorful.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jack Cherng",
+            "email": "jfcherng@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Jfcherng\\Color\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "require": {
+        "php": "^7.1.3"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.11.1",
+        "phpunit/phpunit": "^7.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "fix": [
+            "php-cs-fixer fix --verbose"
+        ],
+        "test": [
+            "phpunit"
+        ]
+    }
+}
