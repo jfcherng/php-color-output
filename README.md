@@ -2,6 +2,7 @@
 
 ![demo.gif](https://raw.githubusercontent.com/jfcherng/php-color-output/gh-pages/images/demo.gif)
 
+The above screenshot is the output of `demo.php`. See the [Example](#example) section.
 
 
 # Installation
@@ -26,9 +27,47 @@ composer require jfcherng/php-color-output
 | -            | f_red        | -              | -         | -             |
 
 
-# Usage
+# Functions
 
-You may run `$ php demo.php` to see the demo.
+```php
+<?php
+
+// a global alias to \Jfcherng\Color\Colorful::color
+function str_color(string $str, $colors = [], bool $autoReset = true): string
+
+// a global alias to \Jfcherng\Color\Colorful::noColor
+function str_nocolor(string $str): string
+```
+
+
+# Methods
+
+```php
+<?php
+
+/**
+ * Make a string colorful.
+ *
+ * @param string       $str       the string
+ * @param array|string $colors    the colors
+ * @param bool         $autoReset automatically reset at the end of the string?
+ *
+ * @return string the colored string
+ */
+\Jfcherng\Color\Colorful::color(string $str, $colors = [], bool $autoReset = true): string
+
+/**
+ * Remove all colors from a string.
+ *
+ * @param string $str the string
+ *
+ * @return string the string without colors
+ */
+\Jfcherng\Color\Colorful::noColor(string $str): string
+```
+
+
+# Example
 
 ```php
 <?php

@@ -4,6 +4,8 @@ if (!function_exists('str_color')) {
     /**
      * Make a string colorful.
      *
+     * A global alias to \Jfcherng\Color\Colorful::color.
+     *
      * @param string       $str       the string
      * @param array|string $colors    the colors
      * @param bool         $autoReset automatically reset at the end of the string?
@@ -19,6 +21,8 @@ if (!function_exists('str_color')) {
 if (!function_exists('str_nocolor')) {
     /**
      * Remove all colors from a string.
+     *
+     * A global alias to \Jfcherng\Color\Colorful::noColor
      *
      * @param string $str the string
      *
