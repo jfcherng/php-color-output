@@ -77,7 +77,7 @@ class Colorful
      */
     public static function getColorMap(): array
     {
-        return self::$colorMap;
+        return static::$colorMap;
     }
 
     /**
@@ -95,13 +95,13 @@ class Colorful
             return '';
         }
 
-        $colored = self::getColorCode($colors) . $str;
+        $colored = static::getColorCode($colors) . $str;
 
         if ($autoReset) {
-            $colored .= self::getColorCode(['reset']);
+            $colored .= static::getColorCode(['reset']);
         }
 
-        return self::simplifyColoredString($colored);
+        return static::simplifyColoredString($colored);
     }
 
     /**
@@ -115,9 +115,9 @@ class Colorful
     {
         $regex = (
             '~' .
-            self::COLOR_BEGIN_REGEX .
+            static::COLOR_BEGIN_REGEX .
             '([0-9]++;?)++' .
-            self::COLOR_END_REGEX .
+            static::COLOR_END_REGEX .
             '~uS'
         );
 
@@ -133,7 +133,7 @@ class Colorful
      */
     protected static function getColorCode($colors): string
     {
-        $colors = self::sanitizeColors($colors);
+        $colors = static::sanitizeColors($colors);
 
         if (empty($colors)) {
             return '';
@@ -141,8 +141,8 @@ class Colorful
 
         $colorCodes = array_map(
             function (string $color): string {
-                for (; isset(self::$colorMap[$color]);) {
-                    $color = self::$colorMap[$color];
+                for (; isset(static::$colorMap[$color]);) {
+                    $color = static::$colorMap[$color];
                 }
 
                 return $color;
@@ -150,7 +150,7 @@ class Colorful
             $colors
         );
 
-        return self::COLOR_BEGIN . implode(';', $colorCodes) . self::COLOR_END;
+        return static::COLOR_BEGIN . implode(';', $colorCodes) . static::COLOR_END;
     }
 
     /**
@@ -169,7 +169,7 @@ class Colorful
         return array_filter(
             array_map('trim', $colors),
             function (string $color): bool {
-                return isset(self::$colorMap[$color]);
+                return isset(static::$colorMap[$color]);
             }
         );
     }
@@ -185,8 +185,8 @@ class Colorful
     {
         // replace multiple consecutive resets with a single reset
         $str = preg_replace(
-            '~(' . self::COLOR_BEGIN_REGEX . '0' . self::COLOR_END_REGEX . '){2,}~uS',
-            self::COLOR_BEGIN . '0' . self::COLOR_END,
+            '~(' . static::COLOR_BEGIN_REGEX . '0' . static::COLOR_END_REGEX . '){2,}~uS',
+            static::COLOR_BEGIN . '0' . static::COLOR_END,
             $str
         );
 
