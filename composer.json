@@ -32,7 +32,7 @@
             "php-cs-fixer fix --verbose"
         ],
         "test": [
-            "phpunit"
+            "phpunit --verbose"
         ]
     }
 }
