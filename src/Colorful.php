@@ -30,6 +30,7 @@ class Colorful
         'b_magenta' => '45',
         'b_red' => '41',
         'b_yellow' => '43',
+
         // foreground
         'f_black' => '30',
         'f_blue' => '34',
@@ -40,6 +41,7 @@ class Colorful
         'f_normal' => '39',
         'f_purple' => '35',
         'f_red' => '31',
+
         // compound
         'f_dark_gray' => '1;30',
         'f_light_blue' => '1;34',
@@ -49,6 +51,7 @@ class Colorful
         'f_light_red' => '1;31',
         'f_white' => '1;37',
         'f_yellow' => '1;33',
+
         // special
         'blink' => '5',
         'bold' => '1',
@@ -57,6 +60,7 @@ class Colorful
         'reset' => '0',
         'reverse' => '7',
         'underline' => '4',
+
         // alias
         'b' => 'bold',
         'blk' => 'blink',
