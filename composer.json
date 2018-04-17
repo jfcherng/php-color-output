@@ -17,6 +17,11 @@
             "src/helpers.php"
         ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Jfcherng\\Color\\Test\\": "tests/"
+        }
+    },
     "require": {
         "php": "^7.1.3"
     },
