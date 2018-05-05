@@ -1,6 +1,6 @@
 # PHP-Color-Output [![Build Status](https://travis-ci.org/jfcherng/php-color-output.svg?branch=master)](https://travis-ci.org/jfcherng/php-color-output)
 
-![demo.gif](https://raw.githubusercontent.com/jfcherng/php-color-output/gh-pages/images/demo.gif)
+![demo.gif](https://i.imgur.com/xMhYHjV.gif)
 
 The above screenshot is the output of `demo.php`. See the [Example](#example) section.
 
