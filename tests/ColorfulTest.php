@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Jfcherng\Color\Test;
 
 use Jfcherng\Color\Colorful;

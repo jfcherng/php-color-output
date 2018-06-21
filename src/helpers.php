@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (!function_exists('str_color')) {
     /**
      * Make a string colorful.
