@@ -1,4 +1,4 @@
-# PHP-Color-Output [![Build Status](https://travis-ci.org/jfcherng/php-color-output.svg?branch=master)](https://travis-ci.org/jfcherng/php-color-output)
+# php-color-output [![Build Status](https://travis-ci.org/jfcherng/php-color-output.svg?branch=master)](https://travis-ci.org/jfcherng/php-color-output)
 
 ![demo.gif](https://i.imgur.com/xMhYHjV.gif)
 
