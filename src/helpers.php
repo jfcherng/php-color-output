@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-if (!function_exists('str_color')) {
+if (!\function_exists('str_color')) {
     /**
      * Make a string colorful.
      *
@@ -20,7 +20,7 @@ if (!function_exists('str_color')) {
     }
 }
 
-if (!function_exists('str_nocolor')) {
+if (!\function_exists('str_nocolor')) {
     /**
      * Remove all colors from a string.
      *

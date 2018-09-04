@@ -123,7 +123,7 @@ class Colorful
             '~uS'
         );
 
-        return preg_replace($regex, '', $str);
+        return \preg_replace($regex, '', $str);
     }
 
     /**
@@ -141,7 +141,7 @@ class Colorful
             return '';
         }
 
-        $colorCodes = array_map(
+        $colorCodes = \array_map(
             function (string $color): string {
                 for (; isset(static::$colorMap[$color]);) {
                     $color = static::$colorMap[$color];
@@ -152,7 +152,7 @@ class Colorful
             $colors
         );
 
-        return static::COLOR_BEGIN . implode(';', $colorCodes) . static::COLOR_END;
+        return static::COLOR_BEGIN . \implode(';', $colorCodes) . static::COLOR_END;
     }
 
     /**
@@ -164,12 +164,12 @@ class Colorful
      */
     protected static function sanitizeColors($colors): array
     {
-        if (is_string($colors)) {
-            $colors = explode(',', $colors);
+        if (\is_string($colors)) {
+            $colors = \explode(',', $colors);
         }
 
-        return array_filter(
-            array_map('trim', $colors),
+        return \array_filter(
+            \array_map('trim', $colors),
             function (string $color): bool {
                 return isset(static::$colorMap[$color]);
             }
@@ -186,7 +186,7 @@ class Colorful
     protected static function simplifyColoredString(string $str): string
     {
         // replace multiple consecutive resets with a single reset
-        $str = preg_replace(
+        $str = \preg_replace(
             '~(' . static::COLOR_BEGIN_REGEX . '0' . static::COLOR_END_REGEX . '){2,}~uS',
             static::COLOR_BEGIN . '0' . static::COLOR_END,
             $str
