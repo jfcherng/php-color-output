@@ -8,7 +8,7 @@ The above screenshot is the output of `demo.php`. See the [Example](#example) se
 # Installation
 
 ```
-composer require jfcherng/php-color-output --no-dev
+composer require jfcherng/php-color-output
 ```
 
 
