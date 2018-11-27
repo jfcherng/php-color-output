@@ -3,6 +3,10 @@ VERSION 1  INIT
 ===============
 
    Version 1.0 - init
+      27/11/2018 21:25  1.0.8  nits
+         61d365e Update codes
+         b6e69f0 Update README
+         69d84bf Update deps
       04/09/2018 18:56  1.0.7  php-cs-fixer
          7dd1322 php-cs-fixer: enable native_constant_invocation and native_function_invocation
          1a1d921 Update deps
