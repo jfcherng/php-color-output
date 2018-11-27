@@ -70,6 +70,9 @@ class Colorful
         'rev' => 'reverse',
         'rst' => 'reset',
         'u' => 'underline',
+
+        // regex for color codes
+        'regex_any' => '(?:[0-9]++;?)++',
     ];
 
     /**
@@ -93,8 +96,9 @@ class Colorful
      */
     public static function color(string $str, $colors = [], bool $autoReset = true): string
     {
-        if ($str === '' && empty($colors)) {
-            return '';
+        // always convert $colors into an array
+        if (\is_string($colors)) {
+            $colors = \explode(',', $colors);
         }
 
         $colored = static::getColorCode($colors) . $str;
@@ -115,25 +119,22 @@ class Colorful
      */
     public static function noColor(string $str): string
     {
-        $regex = (
-            '~' .
-            static::COLOR_BEGIN_REGEX .
-            '([0-9]++;?)++' .
-            static::COLOR_END_REGEX .
-            '~uS'
+        return \preg_replace(
+            '~' . static::getColorCode(['regex_any'], true) . '~uS',
+            '',
+            $str
         );
-
-        return \preg_replace($regex, '', $str);
     }
 
     /**
      * Get the color code from given colors.
      *
-     * @param array|string $colors the colors
+     * @param array $colors      the colors
+     * @param bool  $returnRegex return as an regex segment
      *
      * @return string the color code
      */
-    protected static function getColorCode($colors): string
+    protected static function getColorCode(array $colors, bool $returnRegex = false): string
     {
         $colors = static::sanitizeColors($colors);
 
@@ -143,7 +144,7 @@ class Colorful
 
         $colorCodes = \array_map(
             function (string $color): string {
-                for (; isset(static::$colorMap[$color]);) {
+                while (isset(static::$colorMap[$color])) {
                     $color = static::$colorMap[$color];
                 }
 
@@ -152,28 +153,28 @@ class Colorful
             $colors
         );
 
-        return static::COLOR_BEGIN . \implode(';', $colorCodes) . static::COLOR_END;
+        $closures = $returnRegex
+            ? [static::COLOR_BEGIN_REGEX, static::COLOR_END_REGEX]
+            : [static::COLOR_BEGIN, static::COLOR_END];
+
+        return $closures[0] . \implode(';', $colorCodes) . $closures[1];
     }
 
     /**
      * Sanitize colors.
      *
-     * @param array|string $colors the colors
+     * @param array $colors the colors
      *
      * @return array the sanitized colors
      */
-    protected static function sanitizeColors($colors): array
+    protected static function sanitizeColors(array $colors): array
     {
-        if (\is_string($colors)) {
-            $colors = \explode(',', $colors);
-        }
-
-        return \array_filter(
+        return \array_unique(\array_filter(
             \array_map('trim', $colors),
             function (string $color): bool {
                 return isset(static::$colorMap[$color]);
             }
-        );
+        ));
     }
 
     /**
@@ -187,8 +188,20 @@ class Colorful
     {
         // replace multiple consecutive resets with a single reset
         $str = \preg_replace(
-            '~(' . static::COLOR_BEGIN_REGEX . '0' . static::COLOR_END_REGEX . '){2,}~uS',
-            static::COLOR_BEGIN . '0' . static::COLOR_END,
+            '~(' . static::getColorCode(['reset'], true) . '){2,}~uS',
+            '$1',
+            $str
+        );
+
+        // remove colors for an emtpy string
+        $str = \preg_replace(
+            (
+                '~' .
+                    '(' . static::getColorCode(['regex_any'], true) . ')' .
+                    '(' . static::getColorCode(['reset'], true) . ')' .
+                '~uS'
+            ),
+            '$2',
             $str
         );
 

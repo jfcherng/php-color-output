@@ -22,11 +22,15 @@ class ColorfulTest extends TestCase
         return [
             [
                 [''],
-                '',
+                "\033[0m",
             ],
             [
-                ['', 'reset'],
+                ['', 'b_green'],
                 "\033[0m",
+            ],
+            [
+                ['', 'b_green', false],
+                "\033[42m",
             ],
             [
                 ['foo'],
@@ -39,6 +43,10 @@ class ColorfulTest extends TestCase
             [
                 ['foo', ''],
                 'foo' . "\033[0m",
+            ],
+            [
+                ['foo', 'b_green, b_green'],
+                "\033[42m" . 'foo' . "\033[0m",
             ],
             [
                 ['foo', ['foo', 'b_green', 'bar'], false],
