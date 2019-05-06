@@ -9,8 +9,10 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Jfcherng\Color\Colorful
+ *
+ * @internal
  */
-class ColorfulTest extends TestCase
+final class ColorfulTest extends TestCase
 {
     /**
      * Provide testcases for testing Colorful::color.
@@ -92,7 +94,7 @@ class ColorfulTest extends TestCase
      */
     public function testColor(array $inputs, string $expected): void
     {
-        $this->assertSame($expected, Colorful::color(...$inputs));
+        static::assertSame($expected, Colorful::color(...$inputs));
     }
 
     /**
@@ -105,6 +107,6 @@ class ColorfulTest extends TestCase
      */
     public function testNoColor(string $input, string $expected): void
     {
-        $this->assertSame($expected, Colorful::noColor($input));
+        static::assertSame($expected, Colorful::noColor($input));
     }
 }
