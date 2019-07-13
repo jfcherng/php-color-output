@@ -1,4 +1,23 @@
 
+## VERSION 2  NAMESPACE CHANGE
+
+ * Version **2.0** - namespace change
+   * 2019-07-13 17:50  **2.0.0**  initial release
+      * d522a7d Add UPGRADING_v2.md
+      * 33fc823 Rename/modify CHANGELOG -> CHANGELOG.md
+      * 056f68a Renamed namespace and functions
+      * e036a8d Update deps
+      * 2a0b002 Update deps
+      * f51db25 Add .gitattributes
+      * 2e644d4 $ composer fix
+      * d9df730 Update deps
+      * 6556ba0 Update .travis.yml for 7.4snapshot
+      * e6b57cd Add .editorconfig
+      * 8b93884 Update deps
+      * e7be444 Temporary fix for CI
+      * 434fff4 year++
+      * 2c4077f Add tests for PHP 7.3
+
 ## VERSION 1  INIT
 
  * Version **1.0** - init
