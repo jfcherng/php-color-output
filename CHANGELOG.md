@@ -1,0 +1,19 @@
+
+## VERSION 1  INIT
+
+ * Version **1.0** - init
+   * 2018-11-27 21:25  **1.0.8**  nits
+      * 61d365e Update codes
+      * b6e69f0 Update README
+      * 69d84bf Update deps
+   * 2018-09-04 18:56  **1.0.7**  php-cs-fixer
+      * 7dd1322 php-cs-fixer: enable native_constant_invocation and native_function_invocation
+      * 1a1d921 Update deps
+      * 1af0ae3 Rename CHANGELOG.md -> CHANGELOG
+      * 47776c4 Update deps
+      * 2de4f26 Update .travis.yml
+   * 2018-07-18 08:47  **1.0.6**  Add composer.lock
+      * 0281a77 Add composer.lock
+   * 2018-07-04 15:33  **1.0.5**  nits
+      * fcecbfb Update .rmt.yml
+   * 2018-07-04 15:06  **1.0.4**  initial release
