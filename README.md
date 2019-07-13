@@ -32,11 +32,11 @@ composer require jfcherng/php-color-output
 ```php
 <?php
 
-// a global alias to \Jfcherng\Color\Colorful::color
-function str_color(string $str, $colors = [], bool $autoReset = true): string
+// a global alias to \Jfcherng\Utility\CliColor::color
+function str_cli_color(string $str, $colors = [], bool $reset = true): string
 
-// a global alias to \Jfcherng\Color\Colorful::noColor
-function str_nocolor(string $str): string
+// a global alias to \Jfcherng\Utility\CliColor::noColor
+function str_cli_nocolor(string $str): string
 ```
 
 
@@ -48,13 +48,13 @@ function str_nocolor(string $str): string
 /**
  * Make a string colorful.
  *
- * @param string       $str       the string
- * @param array|string $colors    the colors
- * @param bool         $autoReset automatically reset at the end of the string?
+ * @param string          $str       the string
+ * @param string|string[] $colors    the colors
+ * @param bool            $reset     reset color at the end of the string?
  *
  * @return string the colored string
  */
-\Jfcherng\Color\Colorful::color(string $str, $colors = [], bool $autoReset = true): string
+\Jfcherng\Utility\CliColor::color(string $str, $colors = [], bool $reset = true): string
 
 /**
  * Remove all colors from a string.
@@ -63,7 +63,7 @@ function str_nocolor(string $str): string
  *
  * @return string the string without colors
  */
-\Jfcherng\Color\Colorful::noColor(string $str): string
+\Jfcherng\Utility\CliColor::noColor(string $str): string
 ```
 
 
@@ -75,25 +75,25 @@ function str_nocolor(string $str): string
 include __DIR__ . '/vendor/autoload.php';
 
 // colors in a string using a comma as the delimiter
-echo str_color('foo', 'f_light_cyan, b_yellow');  // "\033[1;36;43mfoo\033[0m"
+echo str_cli_color('foo', 'f_light_cyan, b_yellow');  // "\033[1;36;43mfoo\033[0m"
 
 echo PHP_EOL;
 
 // colors in an array
-echo str_color('foo', ['f_white', 'b_magenta']); // "\033[1;37;45mfoo\033[0m"
+echo str_cli_color('foo', ['f_white', 'b_magenta']); // "\033[1;37;45mfoo\033[0m"
 
 echo PHP_EOL;
 
 // do not auto reset color at the end of string
-echo str_color('foo', ['f_red', 'b_green', 'b', 'blk'], false); // "\033[31;42;1;5mfoo"
+echo str_cli_color('foo', ['f_red', 'b_green', 'b', 'blk'], false); // "\033[31;42;1;5mfoo"
 
 // manually add color reset
-echo str_color('', 'reset'); // "\033[0m"
+echo str_cli_color('', 'reset'); // "\033[0m"
 
 echo PHP_EOL;
 
 // remove all color codes from a string
-echo str_nocolor("\033[31;42;5mfoo\033[0mbar"); // "foobar"
+echo str_cli_nocolor("\033[31;42;5mfoo\033[0mbar"); // "foobar"
 
 echo PHP_EOL;
 ```

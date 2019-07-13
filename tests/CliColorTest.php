@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Jfcherng\Color\Test;
+namespace Jfcherng\Utility\Test;
 
-use Jfcherng\Color\Colorful;
+use Jfcherng\Utility\CliColor;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Jfcherng\Color\Colorful
+ * @covers \Jfcherng\Utility\CliColor
  *
  * @internal
  */
-final class ColorfulTest extends TestCase
+final class CliColorTest extends TestCase
 {
     /**
-     * Provide testcases for testing Colorful::color.
+     * Provide testcases for testing CliColor::color.
      *
      * @return array the testcases
      */
@@ -47,7 +47,8 @@ final class ColorfulTest extends TestCase
                 'foo' . "\033[0m",
             ],
             [
-                ['foo', 'b_green, b_green'],
+                // repeated colors only output once
+                ['foo', 'b_green, b_green, b_green, b_green'],
                 "\033[42m" . 'foo' . "\033[0m",
             ],
             [
@@ -70,7 +71,7 @@ final class ColorfulTest extends TestCase
     }
 
     /**
-     * Provide testcases for testing Colorful::noColor.
+     * Provide testcases for testing CliColor::noColor.
      *
      * @return array the testcases
      */
@@ -85,28 +86,28 @@ final class ColorfulTest extends TestCase
     }
 
     /**
-     * Test Colorful::color.
+     * Test CliColor::color.
      *
      * @dataProvider colorTestcaseProvider
      *
-     * @param array  $inputs   The inputs
-     * @param string $expected The expected
+     * @param array  $inputs   the inputs
+     * @param string $expected the expected
      */
     public function testColor(array $inputs, string $expected): void
     {
-        static::assertSame($expected, Colorful::color(...$inputs));
+        static::assertSame($expected, CliColor::color(...$inputs));
     }
 
     /**
-     * Test Colorful::noColor.
+     * Test CliColor::noColor.
      *
      * @dataProvider noColorTestcaseProvider
      *
-     * @param string $inputs   The input
-     * @param string $expected The expected
+     * @param string $inputs   the input
+     * @param string $expected the expected
      */
     public function testNoColor(string $input, string $expected): void
     {
-        static::assertSame($expected, Colorful::noColor($input));
+        static::assertSame($expected, CliColor::noColor($input));
     }
 }

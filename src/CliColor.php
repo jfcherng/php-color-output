@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jfcherng\Color;
+namespace Jfcherng\Utility;
 
 /**
  * Make your PHP command-line application colorful.
@@ -11,7 +11,7 @@ namespace Jfcherng\Color;
  *
  * @author Jack Cherng <jfcherng@gmail.com>
  */
-class Colorful
+final class CliColor
 {
     const COLOR_BEGIN = "\033[";
     const COLOR_END = 'm';
@@ -22,7 +22,7 @@ class Colorful
     /**
      * @var array the color map
      */
-    protected static $colorMap = [
+    private static $colorMap = [
         // background
         'b_black' => '40',
         'b_blue' => '44',
@@ -82,32 +82,32 @@ class Colorful
      */
     public static function getColorMap(): array
     {
-        return static::$colorMap;
+        return self::$colorMap;
     }
 
     /**
      * Make a string colorful.
      *
-     * @param string       $str       the string
-     * @param array|string $colors    the colors
-     * @param bool         $autoReset automatically reset at the end of the string?
+     * @param string          $str    the string
+     * @param string|string[] $colors the colors
+     * @param bool            $reset  reset color at the end of the string?
      *
      * @return string the colored string
      */
-    public static function color(string $str, $colors = [], bool $autoReset = true): string
+    public static function color(string $str, $colors = [], bool $reset = true): string
     {
         // always convert $colors into an array
         if (\is_string($colors)) {
             $colors = \explode(',', $colors);
         }
 
-        $colored = static::getColorCode($colors) . $str;
+        $colored = self::getColorCode($colors) . $str;
 
-        if ($autoReset) {
-            $colored .= static::getColorCode(['reset']);
+        if ($reset) {
+            $colored .= self::getColorCode(['reset']);
         }
 
-        return static::simplifyColoredString($colored);
+        return self::simplifyColoredString($colored);
     }
 
     /**
@@ -120,7 +120,7 @@ class Colorful
     public static function noColor(string $str): string
     {
         return \preg_replace(
-            '~' . static::getColorCode(['regex_any'], true) . '~uS',
+            '~' . self::getColorCode(['regex_any'], true) . '~uS',
             '',
             $str
         );
@@ -134,18 +134,20 @@ class Colorful
      *
      * @return string the color code
      */
-    protected static function getColorCode(array $colors, bool $returnRegex = false): string
+    private static function getColorCode(array $colors, bool $returnRegex = false): string
     {
-        $colors = static::sanitizeColors($colors);
+        $colors = self::sanitizeColors($colors);
 
         if (empty($colors)) {
             return '';
         }
 
+        // convert color into color code
         $colorCodes = \array_map(
             function (string $color): string {
-                while (isset(static::$colorMap[$color])) {
-                    $color = static::$colorMap[$color];
+                // resolve color alias
+                while (isset(self::$colorMap[$color])) {
+                    $color = self::$colorMap[$color];
                 }
 
                 return $color;
@@ -154,8 +156,8 @@ class Colorful
         );
 
         $closures = $returnRegex
-            ? [static::COLOR_BEGIN_REGEX, static::COLOR_END_REGEX]
-            : [static::COLOR_BEGIN, static::COLOR_END];
+            ? [self::COLOR_BEGIN_REGEX, self::COLOR_END_REGEX]
+            : [self::COLOR_BEGIN, self::COLOR_END];
 
         return $closures[0] . \implode(';', $colorCodes) . $closures[1];
     }
@@ -167,12 +169,12 @@ class Colorful
      *
      * @return array the sanitized colors
      */
-    protected static function sanitizeColors(array $colors): array
+    private static function sanitizeColors(array $colors): array
     {
-        return \array_unique(\array_filter(
+        return self::listUnique(\array_filter(
             \array_map('trim', $colors),
             function (string $color): bool {
-                return isset(static::$colorMap[$color]);
+                return isset(self::$colorMap[$color]);
             }
         ));
     }
@@ -184,11 +186,11 @@ class Colorful
      *
      * @return string the simplified colored string
      */
-    protected static function simplifyColoredString(string $str): string
+    private static function simplifyColoredString(string $str): string
     {
         // replace multiple consecutive resets with a single reset
         $str = \preg_replace(
-            '~(' . static::getColorCode(['reset'], true) . '){2,}~uS',
+            '~(' . self::getColorCode(['reset'], true) . '){2,}~uS',
             '$1',
             $str
         );
@@ -197,8 +199,8 @@ class Colorful
         $str = \preg_replace(
             (
                 '~' .
-                    '(' . static::getColorCode(['regex_any'], true) . ')' .
-                    '(' . static::getColorCode(['reset'], true) . ')' .
+                    '(' . self::getColorCode(['regex_any'], true) . ')' .
+                    '(' . self::getColorCode(['reset'], true) . ')' .
                 '~uS'
             ),
             '$2',
@@ -206,5 +208,19 @@ class Colorful
         );
 
         return $str;
+    }
+
+    /**
+     * The fastest array_unique() implementation for a non-associative array AFAIK.
+     *
+     * @see https://stackoverflow.com/questions/8321620/array-unique-vs-array-flip
+     *
+     * @param array $array the array
+     *
+     * @return array
+     */
+    private static function listUnique(array $array): array
+    {
+        return \array_keys(\array_count_values($array));
     }
 }

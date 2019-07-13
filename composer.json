@@ -19,7 +19,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Jfcherng\\Color\\": "src/"
+            "Jfcherng\\Utility\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Jfcherng\\Color\\Test\\": "tests/"
+            "Jfcherng\\Utility\\Test\\": "tests/"
         }
     },
     "require": {
