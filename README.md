@@ -1,11 +1,11 @@
-# php-color-output 
+# php-color-output
 
-<a href="https://travis-ci.org/jfcherng/php-color-output"><img alt="Travis (.org) branch" src="https://img.shields.io/travis/jfcherng/php-color-output/master"></a>
-<a href="https://packagist.org/packages/jfcherng/php-color-output"><img alt="Packagist" src="https://img.shields.io/packagist/dt/jfcherng/php-color-output"></a>
-<a href="https://packagist.org/packages/jfcherng/php-color-output"><img alt="Packagist Version" src="https://img.shields.io/packagist/v/jfcherng/php-color-output"></a>
-<a href="https://github.com/jfcherng/php-color-output/blob/master/LICENSE"><img alt="Project license" src="https://img.shields.io/github/license/jfcherng/php-color-output"></a>
-<a href="https://github.com/jfcherng/php-color-output/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/jfcherng/php-color-output?logo=github"></a>
-<a href="https://www.paypal.me/jfcherng/5usd" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-blue.svg?logo=paypal" /></a>
+[![Travis (.org) branch](https://img.shields.io/travis/jfcherng/php-color-output/master?style=flat-square)](https://travis-ci.org/jfcherng/php-color-output)
+[![Packagist](https://img.shields.io/packagist/dt/jfcherng/php-color-output?style=flat-square)](https://packagist.org/packages/jfcherng/php-color-output)
+[![Packagist Version](https://img.shields.io/packagist/v/jfcherng/php-color-output?style=flat-square)](https://packagist.org/packages/jfcherng/php-color-output)
+[![Project license](https://img.shields.io/github/license/jfcherng/php-color-output?style=flat-square)](https://github.com/jfcherng/php-color-output/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/jfcherng/php-color-output?style=flat-square&logo=github)](https://github.com/jfcherng/php-color-output/stargazers)
+[![Donate to this project using Paypal](https://img.shields.io/badge/paypal-donate-blue.svg?style=flat-square&logo=paypal)](https://www.paypal.me/jfcherng/5usd)
 
 ![demo.gif](https://i.imgur.com/xMhYHjV.gif)
 
@@ -14,12 +14,12 @@ The above screenshot is the output of `demo.php`. See the [Example](#example) se
 
 ## Installation
 
-```
+```text
 composer require jfcherng/php-color-output
 ```
 
 
-## Available Colors
+## Available Styles
 
 | Background   | Foreground   | Compound       | Special   | Alias         |
 | ---          | ---          | ---            | ---       | ---           |
@@ -34,20 +34,7 @@ composer require jfcherng/php-color-output
 | -            | f_red        | -              | -         | -             |
 
 
-## Functions
-
-```php
-<?php
-
-// a global alias to \Jfcherng\Utility\CliColor::color
-function str_cli_color(string $str, $colors = [], bool $reset = true): string
-
-// a global alias to \Jfcherng\Utility\CliColor::noColor
-function str_cli_nocolor(string $str): string
-```
-
-
-## Methods
+## Functions and Methods
 
 ```php
 <?php
@@ -71,6 +58,12 @@ function str_cli_nocolor(string $str): string
  * @return string the string without colors
  */
 \Jfcherng\Utility\CliColor::noColor(string $str): string
+
+// a global alias to \Jfcherng\Utility\CliColor::color()
+function str_cli_color(string $str, $colors = [], bool $reset = true): string
+
+// a global alias to \Jfcherng\Utility\CliColor::noColor()
+function str_cli_nocolor(string $str): string
 ```
 
 
