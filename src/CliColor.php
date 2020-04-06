@@ -216,8 +216,6 @@ final class CliColor
      * @see https://stackoverflow.com/questions/8321620/array-unique-vs-array-flip
      *
      * @param array $array the array
-     *
-     * @return array
      */
     private static function listUnique(array $array): array
     {

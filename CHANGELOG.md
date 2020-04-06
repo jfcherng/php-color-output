@@ -2,6 +2,14 @@
 ## VERSION 2  NAMESPACE CHANGE
 
  * Version **2.0** - namespace change
+   * 2020-04-06 15:51  **2.0.1**  fix demo.php
+      * 245aa2f chore: allow PHPUnit ^9
+      * f139892 chore: update deps
+      * a09f00f fix: fix demo.php
+      * 8384498 Update deps
+      * 40e0d43 Update .travis.yml to PHP 7.4 stable
+      * 2746bcf Add php_codesniffer
+      * 6f96961 Update readme to use badges from shields.io
    * 2019-07-13 17:50  **2.0.0**  initial release
       * d522a7d Add UPGRADING_v2.md
       * 33fc823 Rename/modify CHANGELOG -> CHANGELOG.md
