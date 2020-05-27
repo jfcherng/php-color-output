@@ -2,6 +2,11 @@
 ## VERSION 2  NAMESPACE CHANGE
 
  * Version **2.0** - namespace change
+   * 2020-05-28 03:24  **2.0.2**  allow PHP 8
+      * 1ef5198 chore: update deps
+      * 3c6ba82 chore: Composer PHP constrain >=7.1.3
+      * 5035eba chore: update deps
+      * c19946b docs: update readme
    * 2020-04-06 15:51  **2.0.1**  fix demo.php
       * 245aa2f chore: allow PHPUnit ^9
       * f139892 chore: update deps
