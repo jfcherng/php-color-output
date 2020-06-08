@@ -1,13 +1,13 @@
 # php-color-output
 
-[![Travis (.org) branch](https://img.shields.io/travis/jfcherng/php-color-output/master?style=flat-square)](https://travis-ci.org/jfcherng/php-color-output)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/jfcherng/php-color-output/Main/master?style=flat-square)](https://github.com/jfcherng/php-color-output/actions)
 [![Packagist](https://img.shields.io/packagist/dt/jfcherng/php-color-output?style=flat-square)](https://packagist.org/packages/jfcherng/php-color-output)
 [![Packagist Version](https://img.shields.io/packagist/v/jfcherng/php-color-output?style=flat-square)](https://packagist.org/packages/jfcherng/php-color-output)
 [![Project license](https://img.shields.io/github/license/jfcherng/php-color-output?style=flat-square)](https://github.com/jfcherng/php-color-output/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/jfcherng/php-color-output?style=flat-square&logo=github)](https://github.com/jfcherng/php-color-output/stargazers)
 [![Donate to this project using Paypal](https://img.shields.io/badge/paypal-donate-blue.svg?style=flat-square&logo=paypal)](https://www.paypal.me/jfcherng/5usd)
 
-![demo.gif](https://i.imgur.com/xMhYHjV.gif)
+![demo.gif](https://github.com/jfcherng/php-color-output/blob/gh-pages/images/demo.gif?raw=true)
 
 The above screenshot is the output of `demo.php`. See the [Example](#example) section.
 
