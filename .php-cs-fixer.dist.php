@@ -1,16 +1,16 @@
 <?php
 
-$config = PhpCsFixer\Config::create()
+$config = (new PhpCsFixer\Config())
     ->setIndent("    ")
     ->setLineEnding("\n")
-    ->setCacheFile(__DIR__ . '/.php_cs.cache')
+    ->setCacheFile(__DIR__ . '/.php-cs-fixer.cache')
     ->setRiskyAllowed(true)
     ->setRules([
         '@PHP71Migration' => true,
         '@PHP73Migration' => false,
         '@PhpCsFixer' => true,
         '@PhpCsFixer:risky' => true,
-        '@PSR2' => true,
+        '@PSR12' => true,
         '@Symfony' => true,
         '@Symfony:risky' => true,
         'align_multiline_comment' => true,
