@@ -1,4 +1,18 @@
 
+## VERSION 3  REMOVE GLOBAL FUNCTIONS
+
+ * Version **3.0** - Remove global functions
+   * 2021-05-27 10:44  **3.0.0**  initial release
+      * fd33968 chore(ci): no need for hirak/prestissimo as of Composer 2
+      * bbdd9d8 chore(ci): also test against PHP 8.0
+      * 069f3b6 chore: add "liip/rmt" as a dev dep
+      * 4cb784c chore: update php-cs-fixer config
+      * 1de05ac docs: update license year
+      * fcd87d8 chore: update deps
+      * 9587412 feat: remove helper.php
+      * 088ade8 chore(ci): migrate CI from Travis to GitHub Actions
+      * b06f614 chore: update license year
+
 ## VERSION 2  NAMESPACE CHANGE
 
  * Version **2.0** - namespace change
