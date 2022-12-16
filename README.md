@@ -1,6 +1,6 @@
 # php-color-output
 
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/jfcherng/php-color-output/Main/master?style=flat-square)](https://github.com/jfcherng/php-color-output/actions)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/jfcherng/php-color-output/php.yml?branch=master&style=flat-square)](https://github.com/jfcherng/php-color-output/actions)
 [![Packagist](https://img.shields.io/packagist/dt/jfcherng/php-color-output?style=flat-square)](https://packagist.org/packages/jfcherng/php-color-output)
 [![Packagist Version](https://img.shields.io/packagist/v/jfcherng/php-color-output?style=flat-square)](https://packagist.org/packages/jfcherng/php-color-output)
 [![Project license](https://img.shields.io/github/license/jfcherng/php-color-output?style=flat-square)](https://github.com/jfcherng/php-color-output/blob/master/LICENSE)
