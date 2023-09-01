@@ -195,7 +195,7 @@ final class CliColor
             $str
         );
 
-        // remove colors for an emtpy string
+        // remove colors for an empty string
         $str = \preg_replace(
             (
                 '~' .
